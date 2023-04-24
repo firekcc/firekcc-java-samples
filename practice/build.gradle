@@ -1,0 +1,8 @@
+archivesBaseName = 'practice'
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	implementation group: 'com.alibaba', name: 'transmittable-thread-local', version: '2.14.2'
+	testImplementation 'io.projectreactor:reactor-test'
+}

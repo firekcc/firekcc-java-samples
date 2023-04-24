@@ -1,6 +1,7 @@
 plugins {
-    id 'org.springframework.boot' version '2.4.11'
-    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'org.springframework.boot' version '2.7.11'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 }
 
 allprojects {
@@ -31,6 +32,9 @@ subprojects {
 
     dependencies {
         implementation 'org.springframework.boot:spring-boot-starter'
+        implementation 'org.springframework.boot:spring-boot-starter-actuator'
+        implementation group: 'com.alibaba', name: 'fastjson', version: '2.0.29'
+        implementation 'com.github.xiaoymin:knife4j-openapi2-spring-boot-starter:4.1.0'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
     }
 

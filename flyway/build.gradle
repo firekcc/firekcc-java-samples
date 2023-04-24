@@ -2,5 +2,4 @@ archivesBaseName = 'flyway'
 
 dependencies {
 	implementation 'org.flywaydb:flyway-core'
-	implementation 'com.github.xiaoymin:knife4j-spring-boot-starter:2.0.9'
 }

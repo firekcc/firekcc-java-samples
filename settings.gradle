@@ -1,2 +1,2 @@
 rootProject.name = 'springboot'
-include 'flyway'
+include ('flyway', 'practice')
