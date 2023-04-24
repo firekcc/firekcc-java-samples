@@ -24,9 +24,13 @@ public class AsyncController {
     @GetMapping("/one")
     public String test01() {
         logger.error("enter test01");
+        //设置主子线程请求上下文
         RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
-//        requestAttributes.setAttribute("test01", "哈哈哈", 0);
+        if (null != requestAttributes) {
+            requestAttributes.setAttribute("test01", "哈哈哈", 0);
+        }
         RequestContextHolder.setRequestAttributes(requestAttributes, true);
+        RequestPoolThreadContextHolder.setPoolThreadContext(requestAttributes);
         return asyncServiceOne.doBiz();
     }
 

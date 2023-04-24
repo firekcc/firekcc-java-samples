@@ -1,6 +1,7 @@
 package cc.firek.spring.practice.async;
 
 import com.alibaba.fastjson2.JSON;
+import com.alibaba.ttl.threadpool.TtlExecutors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler;
@@ -20,7 +21,7 @@ public class AsyncConfig1 implements AsyncConfigurer {
     private static final Logger logger = LoggerFactory.getLogger(AsyncConfig1.class);
 
     @Bean
-    public ThreadPoolTaskExecutor executor() {
+    public Executor executor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         executor.setCorePoolSize(2);
         executor.setMaxPoolSize(3);
@@ -30,7 +31,9 @@ public class AsyncConfig1 implements AsyncConfigurer {
         executor.setWaitForTasksToCompleteOnShutdown(true);
         executor.setAwaitTerminationSeconds(5);
         executor.initialize();
-        return executor;
+        return TtlExecutors.getTtlExecutor(executor.getThreadPoolExecutor());
+
+
     }
 
     @Override

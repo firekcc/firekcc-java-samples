@@ -21,25 +21,25 @@ public class AsyncWebRequestHandlerInterceptorAdapter extends WebRequestHandlerI
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        logger.error("preHandle");
+//        logger.error("preHandle");
         return super.preHandle(request, response, handler);
     }
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        logger.error("postHandle");
+//        logger.error("postHandle");
         super.postHandle(request, response, handler, modelAndView);
     }
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        logger.error("afterCompletion");
+//        logger.error("afterCompletion");
         super.afterCompletion(request, response, handler, ex);
     }
 
     @Override
     public void afterConcurrentHandlingStarted(HttpServletRequest request, HttpServletResponse response, Object handler) {
-        logger.error("afterConcurrentHandlingStarted");
+//        logger.error("afterConcurrentHandlingStarted");
         super.afterConcurrentHandlingStarted(request, response, handler);
     }
 }
