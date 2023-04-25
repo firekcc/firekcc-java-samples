@@ -1,6 +1,5 @@
 package cc.firek.spring.practice.async.feign;
 
-import cc.firek.spring.practice.async.handler.AsyncInterceptor;
 import cc.firek.spring.practice.async.RequestPoolThreadContextHolder;
 import com.alibaba.fastjson2.JSON;
 import feign.RequestInterceptor;
@@ -13,7 +12,7 @@ import org.springframework.web.context.request.RequestAttributes;
 @Configuration
 public class AsyncFeignInterceptor implements RequestInterceptor {
 
-    private static final Logger logger = LoggerFactory.getLogger(AsyncInterceptor.class);
+    private static final Logger logger = LoggerFactory.getLogger(AsyncFeignInterceptor.class);
 
     @Override
     public void apply(RequestTemplate template) {
