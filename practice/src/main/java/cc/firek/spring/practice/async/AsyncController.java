@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
-
-import javax.servlet.http.HttpSession;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 @RestController
 @RequestMapping("/asyncTest")
@@ -28,13 +27,13 @@ public class AsyncController {
     public String test01() {
         logger.error("enter test01");
         //设置主子线程请求上下文
-        RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
-        if (null != requestAttributes) {
-            logger.error("parent requestAttributes is {}", JSON.toJSONString(requestAttributes.getSessionId()));
-            requestAttributes.setAttribute("test01", "哈哈哈", 0);
-        }
-        RequestContextHolder.setRequestAttributes(requestAttributes, true);
-        RequestPoolThreadContextHolder.setPoolThreadContext(requestAttributes);
+        ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        assert requestAttributes != null;
+        AsyncServletRequestAttributes asyncServletRequestAttributes = new AsyncServletRequestAttributes(requestAttributes);
+        logger.error("parent asyncServletRequestAttributes is {}", JSON.toJSONString(asyncServletRequestAttributes.getSessionId()));
+        asyncServletRequestAttributes.setAttribute("test01", "哈哈哈", 0);
+        RequestContextHolder.setRequestAttributes(asyncServletRequestAttributes, true);
+        RequestPoolThreadContextHolder.setPoolThreadContext(asyncServletRequestAttributes);
         return asyncServiceOne.doBiz();
     }
 
