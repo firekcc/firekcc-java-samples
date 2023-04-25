@@ -27,7 +27,7 @@ public class AsyncConfig1 implements AsyncConfigurer {
         executor.setMaxPoolSize(3);
         executor.setQueueCapacity(5);
         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
-        executor.setThreadNamePrefix("firekccDeeAsyncExecutor-");
+        executor.setThreadNamePrefix("FirekccExecutor-");
         executor.setWaitForTasksToCompleteOnShutdown(true);
         executor.setAwaitTerminationSeconds(5);
         executor.initialize();
@@ -38,7 +38,7 @@ public class AsyncConfig1 implements AsyncConfigurer {
 
     @Override
     public Executor getAsyncExecutor() {
-        return executor();
+        return this.executor();
     }
 
     @Override

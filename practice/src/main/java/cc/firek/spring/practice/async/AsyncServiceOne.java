@@ -20,11 +20,13 @@ public class AsyncServiceOne {
     @Async
     public String doBiz() {
         logger.error("enter AsyncServiceOne doBiz");
-        RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
-        if (null == requestAttributes) {
-            return "error";
-        }
+//        RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
+//        RequestAttributes requestAttributes = RequestPoolThreadContextHolder.getPoolThreadContext();
+//        if (null == requestAttributes) {
+//            return "error";
+//        }
 //        return (String) requestAttributes.getAttribute("test01", 0);
         return asyncFeignClient.testA();
+//        return "1";
     }
 }
