@@ -3,6 +3,9 @@ archivesBaseName = 'practice'
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
-	implementation group: 'com.alibaba', name: 'transmittable-thread-local', version: '2.14.2'
+	implementation 'com.alibaba:transmittable-thread-local:2.14.2'
+	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+	implementation 'org.springframework.cloud:spring-cloud-loadbalancer'
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 	testImplementation 'io.projectreactor:reactor-test'
 }

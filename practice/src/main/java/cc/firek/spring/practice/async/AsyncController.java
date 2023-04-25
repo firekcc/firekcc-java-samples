@@ -1,5 +1,6 @@
 package cc.firek.spring.practice.async;
 
+import com.alibaba.fastjson2.JSON;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
+
+import javax.servlet.http.HttpSession;
 
 @RestController
 @RequestMapping("/asyncTest")
@@ -27,6 +30,7 @@ public class AsyncController {
         //设置主子线程请求上下文
         RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
         if (null != requestAttributes) {
+            logger.error("parent requestAttributes is {}", JSON.toJSONString(requestAttributes.getSessionId()));
             requestAttributes.setAttribute("test01", "哈哈哈", 0);
         }
         RequestContextHolder.setRequestAttributes(requestAttributes, true);

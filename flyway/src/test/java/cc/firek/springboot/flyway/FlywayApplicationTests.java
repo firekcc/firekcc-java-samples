@@ -1,4 +1,4 @@
-package com.firekcc.springboot.flyway;
+package cc.firek.springboot.flyway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package cc.firek.spring.practice.async;
+package cc.firek.spring.practice.async.config;
 
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.ttl.threadpool.TtlExecutors;

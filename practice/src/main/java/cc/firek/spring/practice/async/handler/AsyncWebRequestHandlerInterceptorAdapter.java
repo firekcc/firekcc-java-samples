@@ -1,4 +1,4 @@
-package cc.firek.spring.practice.async;
+package cc.firek.spring.practice.async.handler;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

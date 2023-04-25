@@ -1,7 +1,19 @@
 spring:
+  application:
+    name: spring-boot-practice
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone:  http://localhost:8761/eureka/
+    registerWithEureka: true
+    fetchRegistry: true
+  instance:
+    instanceId: practice
+    preferIpAddress: true
 
 knife4j:
   enable: true
